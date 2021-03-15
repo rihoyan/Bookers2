@@ -1,2 +1,38 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h1>Editing Book</h1>
+      <% if @book.errors.any? %>
+        <div class = "alert">
+          <%= @book.errors.count %>error prohibited this obj from being saved:
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: @book,local: true do |f| %>
+      <div class="form-group">
+        <h5>Title</h5>
+        <%= f.text_field :title,class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <h5>Opinion</h5>
+        <%= f.text_area :body,class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Update Book" ,class: "form-control btn btn-success w-25" %>
+      </div>
+      <% end %>
+
+      <div class="link">
+        <%= link_to "Show" ,book_path(@book) %>
+       <div class="px-2"> | </div>
+        <%= link_to "Back",books_path %>
+    </div>
+  </div>
+</div>

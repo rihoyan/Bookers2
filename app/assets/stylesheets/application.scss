@@ -16,3 +16,15 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
+.nav-item{
+ list-style:none;
+}
+
+.message{
+ line-height: 3.0;
+}
+
+.link{
+ display:flex;
+}
